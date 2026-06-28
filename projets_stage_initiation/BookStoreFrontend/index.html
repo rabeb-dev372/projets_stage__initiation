@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Mockup Frontend - BookStore</title>
+    <style>
+        body { font-family: sans-serif; margin: 30px; background-color: #f4f4f9; }
+        .box { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        input, button { padding: 10px; margin: 5px 0; width: 200px; display: block; }
+        button { background-color: #007bff; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+
+    <h1>Maquette Écran : BookStore API Client</h1>
+
+    <div class="box">
+        <h3>Ajouter un Livre (Simulation POST)</h3>
+        <input type="text" id="inputTitre" placeholder="Titre du livre">
+        <input type="text" id="inputAuteur" placeholder="Auteur">
+        <button onclick="uiAddBook()">Envoyer au serveur (Simulé)</button>
+    </div>
+
+    <div class="box">
+        <h3>Livres en Stock (Simulation GET)</h3>
+        <input type="text" id="inputRecherche" placeholder="Rechercher par titre..." oninput="uiSearch()">
+        <ul id="listeAffichage"></ul>
+    </div>
+
+    <script>
+        // FAKE DATA : Tableau JavaScript imitant l'ArrayList du Backend Java
+        let fakeDatabase = [
+            //{ title: "Le Petit Prince", author: "Antoine de Saint-Exupéry" },
+            //{ title: "L'Étranger", author: "Albert Camus" }
+        ];
+
+        // Fonction pour rafraîchir la liste HTML (listBooks)
+        function renderList(booksToDisplay) {
+            const ul = document.getElementById("listeAffichage");
+            ul.innerHTML = ""; // On vide l'affichage précédent
+            
+            booksToDisplay.forEach(book => {
+                let li = document.createElement("li");
+                li.innerHTML = `<strong>"${book.title}"</strong> par ${book.author}`;
+                ul.appendChild(li);
+            });
+        }
+
+        // Action Ajouter un livre (addBook)
+        function uiAddBook() {
+            const t = document.getElementById("inputTitre").value;
+            const a = document.getElementById("inputAuteur").value;
+            
+            if(t && a) {
+                // On pousse dans notre fausse base de données locale
+                fakeDatabase.push({ title: t, author: a });
+                alert("Frontend : Livre envoyé avec succès à l'API simulée !");
+                
+                // Nettoyage des champs et mise à jour de l'écran
+                document.getElementById("inputTitre").value = "";
+                document.getElementById("inputAuteur").value = "";
+                renderList(fakeDatabase);
+            } else {
+                alert("Veuillez remplir tous les champs");
+            }
+        }
+
+        // Action Rechercher en direct (searchByTitle)
+        function uiSearch() {
+            const motCle = document.getElementById("inputRecherche").value.toLowerCase();
+            
+            // On filtre le tableau de fausses données
+            const resultats = fakeDatabase.filter(book => 
+                book.title.toLowerCase().includes(motCle)
+            );
+            
+            renderList(resultats);
+        }
+
+        // Premier affichage au démarrage de la page
+        renderList(fakeDatabase);
+    </script>
+</body>
+</html>
