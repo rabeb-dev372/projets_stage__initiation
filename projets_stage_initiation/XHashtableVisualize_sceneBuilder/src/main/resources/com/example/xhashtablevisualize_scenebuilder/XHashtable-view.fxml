@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane fx:id="mainBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.xhashtablevisualize_scenebuilder.HashtableController">
+   <top>
+      <AnchorPane prefHeight="80.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" layoutX="1.0" layoutY="-10.0" opacity="0.96" prefHeight="100.0" prefWidth="800.0" spacing="10.0" style="-fx-background-color: #f1f8e9;">
+               <children>
+                  <Label text="Clé" />
+                  <TextField fx:id="keyField" />
+                  <Label text="Valeur" />
+                  <TextField fx:id="valueField" />
+                  <Button mnemonicParsing="false" onAction="#onAddClick" style="-fx-background-color: #ffccbc;" text="ADD" />
+                  <Button mnemonicParsing="false" onAction="#onDELETEClick" style="-fx-background-color: #d1c4e9;;" text="DELETE" />
+                  <Button mnemonicParsing="false" onAction="#onFindClick" style="-fx-background-color: #b3e5fc;;" text="FIND" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets right="1.0" top="10.0" />
+               </padding>
+            </HBox>
+         </children>
+      </AnchorPane>
+   </top>
+</BorderPane>

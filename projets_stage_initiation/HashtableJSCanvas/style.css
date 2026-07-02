@@ -1,0 +1,37 @@
+canvas{
+    border:2px solid
+}
+.appbar{
+    background-color:#f0f4f8 ;
+    padding: 30px;
+
+}
+label{
+    font-weight: bold;
+    font-size: 18px;
+
+}
+input{
+    padding:7px;
+    border-radius: 5px;
+    font-size: 10px;
+    width: 150px;
+    font-weight: 30px;
+}
+button{
+    padding: 7px;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+    margin: 5px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+#btnadd{
+    background-color: #27ae60;
+}
+#btndelete{
+    background-color: #e74c3c;
+}
+#btnfind {
+ background-color: #3498db; }
