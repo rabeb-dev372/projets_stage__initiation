@@ -1,0 +1,156 @@
+.hashtable-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px; /* espace entre chaque ligne de la table */
+  margin: 50px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+}
+
+.case-indice {
+  width: 120px;
+  height: 60px;
+  border: 2px solid #333;
+  font-size: 22px;
+  display: flex;
+  align-items: center; /* centrer verticalement */
+  justify-content: center; /* centrer horizontalement */
+  font-weight: bold;
+}
+
+.chaineelist {
+  display: flex;
+  align-items: center;
+  gap: 40px; /* Laisse l'espace parfait pour la ligne de liaison */
+  padding: 10px;
+}
+
+   /* cases du linkedlist*/
+
+.node-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90px;
+  height: 55px;
+  border: 2px solid #007acc;
+  background-color: #e6f7ff;
+  border-radius: 4px;
+  font-weight: 500;
+  position: relative;
+}
+
+/* ligne horizontale entre les nœuds consécutifs */
+.node-box::before {/*creer un conteneur virtuel just avant la case */
+  content: "";/* une ligne sans texte*/
+  background-color: #007acc;
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);/*remonter la ligne vers le haut de la moitié d*/
+  width: 40px;
+  height: 2px;
+}
+
+
+.node-cle {
+  font-size: 15px;
+  font-weight: bold;
+  color: #0050b3;
+}
+
+.node-valeur {
+  font-size: 15px;
+  color: #333;
+}
+/*  padding 0 pour symbole le symbole contre la case */
+.masse-conteneur {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  position: relative;
+  padding-left: 0;
+}
+
+/* La ligne horizontale est dessinée à l'intérieur du symbole
+   et recule vers la gauche pour toucher l'intérieur de la case */
+.masse-conteneur::before {
+  content: "";
+  position: absolute;
+  right: 100%; /* Part du bord gauche du symbole */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px; /* Longueur de la ligne*/
+  height: 2px;
+  background-color: #007acc; /* Même couleur bleue que la bordure de votre case */
+}
+
+/* Le reste du symbole reste inchangé mais se retrouve plaqué contre la case */
+.masse-symbole{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.barre-toit {
+  width: 3px;
+  height: 40px; /* Ajusté à la hauteur de la case */
+  background-color: #005a5b;
+}
+
+.diagonales {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;/*répartir automatiquement et uniformément l'espace vertical disponible entre les 3 petits traits inclinés*/
+  height: 35px;
+}
+
+.diagonales .trait {
+  width: 15px;
+  height: 3px;
+  background-color: #005a5b;
+  transform: rotate(30deg);/*fait pivoter le rectangle de 30 deg dans le sens des aiguilles d'une montre*/
+  transform-origin: left top;
+}
+/* L'animation de clignotement */
+@keyframes flash-animation {
+  0% {
+    background-color: rgba(40, 167, 69, 0.7); /* Vert lumineux transparent */
+  }
+  25% {
+    background-color: #007acc; /* Retour temporaire au bleu d'origine de la case */
+  }
+  50% {
+    background-color: rgba(40, 167, 69, 0.7);
+  }
+  75% {
+    background-color: #007acc;
+  }
+  100% {
+    background-color: rgba(40, 167, 69, 0.7);
+  }
+}
+
+/* La classe activée temporairement par Angular */
+.case-indice.clignote {
+  animation: flash-animation 0.8s ease-in-out infinite;
+  border-radius: 4px; /* Pour faire joli avec le fond coloré */
+}
+
+@keyframes chute-noeud {
+  0% {
+    transform: translateY(-60px) scale(0.7);
+    opacity: 0;
+  }
+  60% {
+    transform: translateY(10px) scale(1.05); /* Petit effet de rebond */
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}

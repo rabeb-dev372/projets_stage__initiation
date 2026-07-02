@@ -1,0 +1,69 @@
+.app-bar{
+  background-color:#e0f2fe;
+  padding: 0 20px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+.app-bar-actins{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+#btn-add{
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  margin: 8px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+#btn-add:hover{
+  background-color: #2563eb;
+}
+#btn-delete{
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  margin: 8px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+#btn-delete:hover {
+  background-color: #dc2626; }
+#btn-find{
+  background: #10b981;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  margin: 8px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+#btn-find:hover {
+  background-color: #059669;
+}
+.app-bar-actins{
+  display: flex;
+  align-items: center;
+}
+.app-bar-actions input{
+  height: 40px;
+  width: 220px;
+  padding: 16px;
+  font-size: 16px;
+  border-radius: 8px;
+  outline: none;
+}
+.app-bar-actins label{
+  font-weight: bold;
+  font-size: 20px;
+}
+

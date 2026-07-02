@@ -1,0 +1,31 @@
+
+
+<div class="hashtable-container">
+  @for(case of hashtableservice.table(); track  $index){
+      <div class="row">
+        <div class="case-indice"[class.clignote]="$index === hashtableservice.indexSelectionne()">{{ $index }}</div>
+        <div class="chaineelist">
+          @if (case !== null){
+            @for (noeud of getNodes(case); track noeud.cle){
+          <div class="node-box" >
+            <span class="node-cle">{{noeud.cle}}</span>
+            <span class="node-valeur">{{noeud.valeur}}</span>
+          </div>
+          @if ($last) {
+          <div class="masse-conteneur">
+            <div class="masse-symbole">
+              <div class="barre-toit"></div>
+              <div class="diagonales">
+                <span class="trait"></span>
+                <span class="trait"></span>
+                <span class="trait"></span>
+              </div>
+            </div>
+          </div>}
+          }
+          }
+        </div>
+      </div>
+  }
+
+</div>

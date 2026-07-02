@@ -1,0 +1,19 @@
+<div class="app-bar">
+  <div class="app-bar-nom">
+    <h1 class="app-bar-titre">Hashtable Visualizer</h1>
+
+  </div>
+  <div class="app-bar-actins">
+    <label>Clé:</label>
+    <input #cleinput type="text">
+    <label>Valeur:</label>
+    <input #valeurinput type="text">
+    <button id="btn-add" (click)="hashtable.addcase(cleinput.value, valeurinput.value); cleinput.value=''; valeurinput.value=''">ADD</button>
+    <button id="btn-delete" (click)="hashtable.deletecase(cleinput.value, valeurinput.value); cleinput.value=''; valeurinput.value=''">DELETE</button>
+    <button id="btn-find" (click)="hashtable.findcase(cleinput.value); cleinput.value=''; valeurinput.value=''">FIND</button>
+  </div>
+</div>
+<main>
+  <app-hashtable-visualizer></app-hashtable-visualizer>
+</main>
+<router-outlet />
